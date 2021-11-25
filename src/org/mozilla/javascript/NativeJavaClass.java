@@ -70,6 +70,14 @@ public class NativeJavaClass extends NativeJavaObject implements Function
         if (name.equals("prototype"))
             return null;
 
+        // Anders
+        // 代码里有这种语法，会报错，所以增加下面两行
+        // var PrefLevel = Java.type('com.ebig.ebeit.framework.preference.PrefLevelBean');
+        // var prefLevelBean = GsonUtil.toBean(param.prefLevelBean, PrefLevel.class);
+        if (name.equals("class")) {
+            return getClassObject();
+        }
+        
          if (staticFieldAndMethods != null) {
             Object result = staticFieldAndMethods.get(name);
             if (result != null)
