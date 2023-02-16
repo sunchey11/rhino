@@ -1500,11 +1500,12 @@ interruptedCheck:
             return functionSources[i];
         }
 
+		//Anders:修改成public
         /**
          * Copies the breakpoints from the given SourceInfo object into this
          * one.
          */
-        private void copyBreakpointsFrom(SourceInfo old) {
+        public void copyBreakpointsFrom(SourceInfo old) {
             int end = old.breakpoints.length;
             if (end > this.breakpoints.length) {
                 end = this.breakpoints.length;
